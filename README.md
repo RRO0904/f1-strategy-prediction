@@ -1,5 +1,5 @@
 # **Formula 1 Strategy Prediction**
-### **Deep Learning aplicado a la predicción de paradas en boxes y elección de neumáticos**
+### **Deep Learning aplicado a la predicción de paradas (Pit Stop) y elección de neumáticos**
 
 Este proyecto utiliza redes neuronales recurrentes para anticipar las decisiones estratégicas de los equipos de Fórmula 1, analizando factores climáticos, telemetría y comportamiento de neumáticos en tiempo real.
 

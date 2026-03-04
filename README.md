@@ -1,30 +1,45 @@
-# **Formula 1 Strategy Prediction**
-### **Deep Learning aplicado a la predicción de paradas en boxes y cambio de neumáticos**
+Formula 1 Strategy Prediction
+Deep Learning aplicado a la predicción de paradas en boxes y elección de neumáticos.
 
-## **El Problema de Negocio**
-En la Fórmula 1, una decisión estratégica tomada en fracciones de segundo puede definir el resultado de una carrera. El objetivo de este proyecto es predecir el momento óptimo y el tipo de neumático para las paradas en boxes (pit stops) utilizando Inteligencia Artificial. Este modelo no solo anticipa las decisiones de los equipos rivales, sino que demuestra cómo el Deep Learning puede aplicarse a entornos de alta incertidumbre y datos en tiempo real para optimizar la toma de decisiones estratégicas.
+Este proyecto utiliza redes neuronales recurrentes para anticipar las decisiones estratégicas de los equipos de Fórmula 1, analizando factores climáticos, telemetría y comportamiento de neumáticos en tiempo real.
 
-## **Stack Tecnológico**
-* **Lenguajes**: Python
+1. El Problema de Negocio
+En la Fórmula 1, la estrategia de neumáticos es el factor diferencial entre la victoria y la derrota. El objetivo de este modelo es procesar secuencias de datos históricos para predecir:
 
-* **Extracción de Datos**: OpenF1 API
+El momento óptimo de la parada (Pit Stop).
 
-* **Análisis y Manipulación**: Pandas, NumPy
+El compuesto más adecuado para el siguiente stint (Hard, Medium o Soft).
 
-* **Deep Learning**: PyTorch (Arquitectura de Redes Neuronales LSTM)
+2. Análisis Exploratorio de Datos (EDA)
+Se ha realizado un análisis exhaustivo de 66 carreras y más de 2.200 stints utilizando la API de OpenF1. Este análisis permite identificar patrones clave, como el dominio de los compuestos Medium y Hard en estrategias de carrera y el impacto de factores externos como el Safety Car.
 
-* **Interpretabilidad (XAI)**: SHAP (SHapley Additive exPlanations)
+[PONER AQUÍ LA IMAGEN 1: Captura de la Página 1 entera]
 
-## **Fases del Proyecto**
-1. **Recopilación de Datos**: Consumo de la API de OpenF1 para extraer telemetría histórica, tiempos por vuelta, tipos de neumáticos y datos meteorológicos.
+Dashboard de análisis estratégico: Se observa la distribución del uso de compuestos y la duración media de los mismos según las condiciones de pista.
 
-2. **Feature Engineering & EDA**: Limpieza de datos continuos y discretos, y creación de variables temporales clave para el entrenamiento de redes secuenciales.
+3. Stack Tecnológico
+Extracción: OpenF1 API.
 
-3. **Modelado Avanzado (Deep Learning)**: Diseño, entrenamiento y validación de una Red Neuronal Recurrente con celdas LSTM (Long Short-Term Memory) mediante PyTorch, ideal para capturar la naturaleza secuencial de las vueltas de una carrera.
+Procesamiento: Python (Pandas, NumPy).
 
-4. **Explicabilidad Algorítmica**: Aplicación de valores SHAP para interpretar las predicciones del modelo. Esto permite entender el peso exacto de cada variable (ej. desgaste del neumático vs. tiempo del rival) en la decisión final, eliminando el efecto "caja negra" de la red neuronal.
+Deep Learning: PyTorch (Arquitectura LSTM).
 
-## **Resultados Clave**
-El modelo LSTM es capaz de procesar secuencias temporales complejas para anticipar estrategias de carrera. La integración de SHAP garantiza que los resultados sean interpretables desde el punto de vista del negocio, permitiendo a los ingenieros de pista confiar en la predicción algorítmica.
+Interpretabilidad: SHAP (Explica el peso de variables como el desgaste y el tiempo del rival).
 
-Este proyecto corresponde al Trabajo de Fin de Máster (TFM) en Data Science.
+Visualización: Power BI.
+
+4. Modelado y Rendimiento (LSTM)
+Para capturar la naturaleza secuencial de una carrera, se implementó una red Long Short-Term Memory (LSTM). A diferencia de los modelos tradicionales, la LSTM permite "recordar" lo sucedido en las vueltas anteriores para predecir el futuro de la carrera con mayor precisión.
+
+[PONER AQUÍ LA IMAGEN 2: Captura de las tablas de métricas de la Página 3]
+
+Métricas de rendimiento: El modelo destaca con un Recall del 81% en neumáticos Hard y una precisión del 69,94% en la predicción de los dos primeros pasos de la estrategia (Prefix Accuracy).
+
+5. Conclusiones y Valor Añadido
+Robustez en Secuencias: El modelo ha demostrado ser 10 veces más preciso que un modelo base en la clasificación de secuencias exactas.
+
+Explicabilidad (XAI): Gracias a la integración de SHAP, el modelo no es una "caja negra"; permite a los ingenieros entender qué factores (lluvia, posición en pista, etc.) están motivando la predicción.
+
+Este proyecto es el resultado de mi Trabajo de Fin de Máster (TFM) en Data Science.
+
+
